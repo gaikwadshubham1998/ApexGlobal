@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="texBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#312E81" />
+    </linearGradient>
+    <linearGradient id="threadGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="12" fill="url(#texBg)" />
+  <circle cx="500" cy="120" r="150" fill="#4338CA" opacity="0.15" />
+
+  <!-- Textile Spools & Woven Cross-hatch Patterns -->
+  <g transform="translate(160, 80)">
+    <!-- Jute & Fabric weave background accent -->
+    <g stroke="#6366F1" stroke-width="1.2" opacity="0.25">
+      <line x1="20" y1="20" x2="300" y2="20" />
+      <line x1="20" y1="40" x2="300" y2="40" />
+      <line x1="20" y1="60" x2="300" y2="60" />
+      <line x1="20" y1="80" x2="300" y2="80" />
+      <line x1="40" y1="10" x2="40" y2="100" />
+      <line x1="80" y1="10" x2="80" y2="100" />
+      <line x1="120" y1="10" x2="120" y2="100" />
+      <line x1="160" y1="10" x2="160" y2="100" />
+      <line x1="200" y1="10" x2="200" y2="100" />
+    </g>
+
+    <!-- Large Cotton Spool -->
+    <g transform="translate(60, 40)">
+      <ellipse cx="60" cy="30" rx="45" ry="15" fill="#E2E8F0" />
+      <rect x="15" y="30" width="90" height="110" fill="#F8FAFC" />
+      <ellipse cx="60" cy="140" rx="45" ry="15" fill="#CBD5E1" />
+      <!-- Central Spindle Hole -->
+      <ellipse cx="60" cy="30" rx="12" ry="5" fill="#64748B" />
+      <!-- Thread grooves -->
+      <g stroke="#CBD5E1" stroke-width="1.5">
+        <line x1="15" y1="50" x2="105" y2="50" />
+        <line x1="15" y1="70" x2="105" y2="70" />
+        <line x1="15" y1="90" x2="105" y2="90" />
+        <line x1="15" y1="110" x2="105" y2="110" />
+        <line x1="15" y1="130" x2="105" y2="130" />
+      </g>
+    </g>
+
+    <!-- Gold / Jute Cone Spool -->
+    <g transform="translate(180, 60)">
+      <ellipse cx="50" cy="25" rx="30" ry="10" fill="#FDE047" />
+      <path d="M 20,25 L 0,130 Q 50,145 100,130 L 80,25 Z" fill="url(#threadGold)" />
+      <ellipse cx="50" cy="25" rx="8" ry="3" fill="#78350F" />
+      <!-- Flowing yarn thread -->
+      <path d="M 0,130 Q -40,160 30,190 T 150,180" fill="none" stroke="#FBBF24" stroke-width="2.5" />
+    </g>
+  </g>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(40, 310)">
+    <rect width="270" height="52" rx="8" fill="#0B1B2B" fill-opacity="0.88" stroke="#D9A441" stroke-width="1.2" />
+    <text x="18" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Textiles, Yarns &amp; Packaging</text>
+    <text x="18" y="40" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#CBD5E1">Cotton Yarn &bull; Jute Bags &bull; Woven Sacks</text>
+  </g>
+</svg>

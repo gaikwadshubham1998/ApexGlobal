@@ -1,0 +1,1291 @@
+/**
+ * ============================================================================
+ * APEX GLOBAL IMPEX - MASTER STYLESHEET
+ * International Import-Export & Merchant Trading
+ * ============================================================================
+ * Design Philosophy:
+ * - Premium B2B Corporate Trust Aesthetic
+ * - Curated Color Palette: Navy Blue (#102A43), Deep Blue (#163A5F), Gold (#D9A441)
+ * - Accessible contrast ratios (WCAG AA compliant)
+ * - Mobile-first responsive layouts
+ * ============================================================================
+ */
+
+/* ----------------------------------------------------------------------------
+   1. CSS VARIABLES & DESIGN TOKENS
+   ---------------------------------------------------------------------------- */
+:root {
+  /* Brand Primary Colors */
+  --color-primary: #102A43;        /* Deep Navy */
+  --color-primary-dark: #0B1B2B;   /* Midnight Navy */
+  --color-primary-light: #163A5F;  /* Deep Ocean Blue */
+  --color-primary-subtle: #244C78; /* Muted Navy */
+
+  /* Accent Colors */
+  --color-accent: #D9A441;         /* Warm Trade Gold */
+  --color-accent-light: #F3BA45;   /* Bright Gold */
+  --color-accent-dark: #B88328;    /* Deep Gold / Hover */
+  --color-accent-soft: rgba(217, 164, 65, 0.12); /* Subtle Gold Tint */
+
+  /* Neutral Surface & Background Colors */
+  --color-bg-body: #FFFFFF;
+  --color-bg-surface: #F8FAFC;
+  --color-bg-subtle: #EEF2F6;
+  --color-bg-dark: #0B1B2B;
+
+  /* Typography Colors */
+  --color-text-main: #1E293B;      /* Slate 800 - High Readability */
+  --color-text-muted: #64748B;     /* Slate 500 */
+  --color-text-light: #94A3B8;     /* Slate 400 */
+  --color-text-inverse: #FFFFFF;
+
+  /* Borders & Dividers */
+  --color-border: #E2E8F0;
+  --color-border-subtle: #CBD5E1;
+  --color-border-focus: #D9A441;
+
+  /* Status Colors */
+  --color-success: #059669;
+  --color-info: #0284C7;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+
+  /* WhatsApp Brand Color */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #128C7E;
+  --color-whatsapp-hover: #1EBE5D;
+
+  /* Typography Font Stacks */
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(16, 42, 67, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(16, 42, 67, 0.08), 0 2px 4px -2px rgba(16, 42, 67, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(16, 42, 67, 0.1), 0 4px 6px -4px rgba(16, 42, 67, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(16, 42, 67, 0.12), 0 8px 10px -6px rgba(16, 42, 67, 0.05);
+  --shadow-hover: 0 14px 28px rgba(16, 42, 67, 0.12), 0 10px 10px rgba(16, 42, 67, 0.06);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 50rem;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 400ms ease;
+}
+
+/* ----------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE TYPOGRAPHY
+   ---------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-body);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3.25rem); }
+h2 { font-size: clamp(1.75rem, 2.5vw + 1rem, 2.35rem); }
+h3 { font-size: clamp(1.25rem, 1.5vw + 0.8rem, 1.6rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-text-main);
+}
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+a {
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Focus styles for keyboard navigation accessibility */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ----------------------------------------------------------------------------
+   3. UTILITY CLASSES & BADGES
+   ---------------------------------------------------------------------------- */
+.section-padding {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+}
+
+.bg-surface {
+  background-color: var(--color-bg-surface);
+}
+
+.bg-dark-navy {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+}
+
+.bg-navy {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Status & Trade Chips */
+.trade-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.trade-chip.export {
+  background-color: #059669;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.trade-chip.import {
+  background-color: #0284C7;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.trade-chip.both {
+  background-color: #D9A441;
+  color: #0B1B2B;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Verified / Editable Notice Tag */
+.editable-notice-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px dashed #F59E0B;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.725rem;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------------------------------
+   4. BUTTONS & CALL-TO-ACTIONS
+   ---------------------------------------------------------------------------- */
+.btn {
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.35;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-gold {
+  background-color: var(--color-accent);
+  color: #102A43;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(217, 164, 65, 0.25);
+}
+
+.btn-gold:hover, .btn-gold:focus {
+  background-color: var(--color-accent-light);
+  border-color: var(--color-accent-light);
+  color: #0B1B2B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(217, 164, 65, 0.35);
+}
+
+.btn-navy {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+.btn-navy:hover, .btn-navy:focus {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-navy {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-navy:hover, .btn-outline-navy:focus {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.btn-outline-light-custom {
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-light-custom:hover, .btn-outline-light-custom:focus {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border-color: #FFFFFF;
+}
+
+/* WhatsApp Specific Button */
+.btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: #FFFFFF !important;
+  border-color: var(--color-whatsapp);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover, .btn-whatsapp:focus {
+  background-color: var(--color-whatsapp-hover);
+  border-color: var(--color-whatsapp-hover);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+.btn-sm-custom {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ----------------------------------------------------------------------------
+   5. TOP ANNOUNCEMENT & UTILITY BAR
+   ---------------------------------------------------------------------------- */
+.top-bar {
+  background-color: var(--color-primary-dark);
+  color: #94A3B8;
+  font-size: 0.8125rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-bar a {
+  color: #CBD5E1;
+  transition: color var(--transition-fast);
+}
+
+.top-bar a:hover {
+  color: var(--color-accent);
+}
+
+.top-bar-divider {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin: 0 0.75rem;
+  vertical-align: middle;
+}
+
+/* ----------------------------------------------------------------------------
+   6. HEADER & NAVIGATION BAR
+   ---------------------------------------------------------------------------- */
+.navbar-custom {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(16, 42, 67, 0.06);
+  padding: 0.85rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  transition: all var(--transition-normal);
+}
+
+.navbar-custom.scrolled {
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 18px rgba(16, 42, 67, 0.12);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+}
+
+.brand-logo-img {
+  height: 44px;
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-primary);
+  padding: 0.5rem 0.9rem !important;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--color-accent-dark);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--color-accent-dark);
+}
+
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0.9rem;
+  right: 0.9rem;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------------------
+   7. HERO SECTION (HOMEPAGE & INNER PAGES)
+   ---------------------------------------------------------------------------- */
+.hero-home {
+  position: relative;
+  background: linear-gradient(135deg, #0B1B2B 0%, #102A43 65%, #163A5F 100%);
+  color: #FFFFFF;
+  padding: 5rem 0 6rem 0;
+  overflow: hidden;
+}
+
+.hero-home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(217, 164, 65, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(217, 164, 65, 0.15);
+  border: 1px solid rgba(217, 164, 65, 0.35);
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-accent-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  color: #FFFFFF;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title span {
+  color: var(--color-accent-light);
+  position: relative;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: #CBD5E1;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 620px;
+}
+
+.hero-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+.hero-feature-item i {
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+
+.hero-visual-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Inner Page Hero (Standard Banner) */
+.page-hero {
+  background: linear-gradient(135deg, #0B1B2B 0%, #102A43 75%, #163A5F 100%);
+  color: #FFFFFF;
+  padding: 4rem 0 3.5rem 0;
+  position: relative;
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.page-hero h1 {
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero p {
+  color: #CBD5E1;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+/* Breadcrumbs */
+.breadcrumb-custom {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-custom li + li::before {
+  content: "/";
+  padding: 0 0.5rem;
+  color: #64748B;
+}
+
+.breadcrumb-custom a {
+  color: var(--color-accent);
+}
+
+.breadcrumb-custom a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-custom .active {
+  color: #CBD5E1;
+}
+
+/* ----------------------------------------------------------------------------
+   8. KEY METRICS & TRUST BANNER
+   ---------------------------------------------------------------------------- */
+.metrics-bar {
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 2.5rem 0;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 10;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.metric-card {
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+.metric-number {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.metric-number span {
+  color: var(--color-accent);
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   9. CARDS (PRODUCTS, SERVICES, ADVANTAGES)
+   ---------------------------------------------------------------------------- */
+.card-b2b {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-b2b:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* Product Card Specifics */
+.product-card {
+  position: relative;
+}
+
+.product-image-wrap {
+  position: relative;
+  background-color: #0F172A;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 220px;
+}
+
+.product-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.06);
+}
+
+.product-type-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+.product-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-category-text {
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-dark);
+  margin-bottom: 0.35rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.product-spec-table {
+  width: 100%;
+  font-size: 0.8125rem;
+  margin: 1rem 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.product-spec-table td {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-spec-table td:first-child {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  width: 40%;
+}
+
+.product-spec-table td:last-child {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.product-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Service Card Specifics */
+.service-card {
+  padding: 2.25rem 1.75rem;
+}
+
+.service-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  transition: all var(--transition-normal);
+}
+
+.service-card:hover .service-icon-box {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  transform: rotate(5deg);
+}
+
+.service-benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0 0;
+  font-size: 0.875rem;
+}
+
+.service-benefit-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.45rem;
+  color: var(--color-text-muted);
+}
+
+.service-benefit-list li::before {
+  content: "\F272"; /* Bootstrap Icon check-circle-fill */
+  font-family: "bootstrap-icons";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-size: 0.95rem;
+}
+
+/* ----------------------------------------------------------------------------
+   10. TRADE PROCESS WORKFLOW
+   ---------------------------------------------------------------------------- */
+.process-step-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.process-step-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.process-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 2px solid var(--color-accent);
+}
+
+.process-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+}
+
+.process-step-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   11. TRADE CORRIDORS & TARGET MARKETS
+   ---------------------------------------------------------------------------- */
+.market-corridor-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.corridor-icon {
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.corridor-region {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+
+.corridor-countries {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   12. BUSINESS ENQUIRY BANNER
+   ---------------------------------------------------------------------------- */
+.cta-banner {
+  background: linear-gradient(135deg, #102A43 0%, #0B1B2B 100%);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(217, 164, 65, 0.3);
+}
+
+.cta-banner::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(217, 164, 65, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-banner h2 {
+  color: #FFFFFF;
+}
+
+.cta-banner p {
+  color: #CBD5E1;
+  font-size: 1.1rem;
+}
+
+/* ----------------------------------------------------------------------------
+   13. ACCORDION (FAQ)
+   ---------------------------------------------------------------------------- */
+.accordion-custom .accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md) !important;
+  margin-bottom: 0.85rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-custom .accordion-button {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  background-color: #FFFFFF;
+  padding: 1.25rem 1.5rem;
+  box-shadow: none;
+}
+
+.accordion-custom .accordion-button:not(.collapsed) {
+  background-color: var(--color-bg-surface);
+  color: var(--color-accent-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion-custom .accordion-button:focus {
+  box-shadow: none;
+  border-color: var(--color-accent);
+}
+
+.accordion-custom .accordion-body {
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-main);
+  background-color: #FFFFFF;
+  line-height: 1.7;
+}
+
+/* ----------------------------------------------------------------------------
+   14. CONTACT FORM & INTERACTIVE VALIDATION
+   ---------------------------------------------------------------------------- */
+.contact-form-wrap {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 576px) {
+  .contact-form-wrap {
+    padding: 1.5rem;
+  }
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+.form-control, .form-select {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.95rem;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  color: var(--color-text-main);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(217, 164, 65, 0.2);
+}
+
+.form-text {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.invalid-feedback {
+  font-size: 0.775rem;
+  font-weight: 600;
+}
+
+/* WhatsApp Message Preview Payload Box */
+.whatsapp-payload-preview {
+  background-color: #F8FAFC;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-whatsapp);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.825rem;
+  white-space: pre-wrap;
+  color: var(--color-primary-dark);
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Contact Info Direct Cards */
+.contact-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.contact-info-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.05em;
+}
+
+.contact-info-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+  word-break: break-word;
+}
+
+/* ----------------------------------------------------------------------------
+   15. FLOATING WHATSAPP BUTTON & BACK TO TOP
+   ---------------------------------------------------------------------------- */
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1040;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-whatsapp);
+  color: #FFFFFF !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.floating-whatsapp-btn:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.55);
+}
+
+.floating-whatsapp-pulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--color-whatsapp);
+  animation: whatsappPulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes whatsappPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Floating WhatsApp Tooltip Tool */
+.floating-whatsapp-tooltip {
+  position: absolute;
+  right: 70px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--transition-fast);
+}
+
+.floating-whatsapp-btn:hover .floating-whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 96px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1030;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+/* ----------------------------------------------------------------------------
+   16. FOOTER
+   ---------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--color-primary-dark);
+  color: #94A3B8;
+  padding: 4.5rem 0 2rem 0;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--color-accent);
+}
+
+.site-footer h5 {
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.site-footer h5::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-links a {
+  color: #CBD5E1;
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent-light);
+  padding-left: 4px;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-icon-btn:hover {
+  background: var(--color-accent);
+  color: #0B1B2B;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.8125rem;
+  color: #64748B;
+}
+
+.footer-bottom a {
+  color: #94A3B8;
+}
+
+.footer-bottom a:hover {
+  color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------------------
+   17. PRODUCT SEARCH & FILTER CONTROLS
+   ---------------------------------------------------------------------------- */
+.filter-tabs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-tab-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.filter-tab-btn:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary-light);
+}
+
+.filter-tab-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.search-input-group {
+  position: relative;
+  max-width: 340px;
+}
+
+.search-input-group .form-control {
+  padding-left: 2.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.search-input-group i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+/* ----------------------------------------------------------------------------
+   18. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   ---------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .floating-whatsapp-pulse {
+    display: none;
+  }
+}

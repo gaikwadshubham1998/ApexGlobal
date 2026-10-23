@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none" class="brand-logo-svg">
+  <!-- Symbol: Global Trade Hexagon with Interlocking Arrows -->
+  <g transform="translate(10, 8)">
+    <defs>
+      <linearGradient id="logoNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#102A43" />
+        <stop offset="100%" stop-color="#1E3E62" />
+      </linearGradient>
+      <linearGradient id="logoGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#F3BA45" />
+        <stop offset="100%" stop-color="#D9A441" />
+      </linearGradient>
+    </defs>
+    <!-- Outer Globe Rings -->
+    <circle cx="24" cy="24" r="22" stroke="url(#logoNavy)" stroke-width="2.5" fill="none" opacity="0.2"/>
+    <ellipse cx="24" cy="24" rx="22" ry="10" stroke="url(#logoNavy)" stroke-width="1.8" fill="none" opacity="0.35"/>
+    <ellipse cx="24" cy="24" rx="10" ry="22" stroke="url(#logoNavy)" stroke-width="1.8" fill="none" opacity="0.35"/>
+    
+    <!-- Dynamic Trade Arrows (Import / Export Dynamic Flow) -->
+    <path d="M12 28 L24 16 L36 28 M24 16 L24 38" stroke="url(#logoGold)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="24" r="4" fill="#102A43" />
+    <circle cx="36" cy="18" r="2.5" fill="url(#logoGold)" />
+    <circle cx="12" cy="30" r="2.5" fill="url(#logoGold)" />
+  </g>
+
+  <!-- Typography: APEX GLOBAL IMPEX -->
+  <g transform="translate(72, 28)">
+    <text font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="20" font-weight="800" letter-spacing="1" fill="#102A43">APEX<tspan fill="#D9A441">GLOBAL</tspan></text>
+    <text y="17" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-size="9" font-weight="600" letter-spacing="3.2" fill="#64748B">IMPORT &#8226; EXPORT &#8226; TRADING</text>
+  </g>
+</svg>

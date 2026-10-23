@@ -1,0 +1,14 @@
+# ==============================================================================
+# ROBOTS.TXT - APEXGLOBAL IMPEX
+# https://www.apexglobalimpex.com
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Disallow non-public scratch or temporary directories
+Disallow: /scratch/
+Disallow: /docs/
+
+# Primary XML Sitemap Location
+Sitemap: https://www.apexglobalimpex.com/sitemap.xml

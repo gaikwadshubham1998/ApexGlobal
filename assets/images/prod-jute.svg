@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" fill="none">
+  <defs>
+    <linearGradient id="jBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C1917"/>
+      <stop offset="100%" stop-color="#292524"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="280" rx="8" fill="url(#jBg)"/>
+  <!-- Jute Sacking Bags Stack -->
+  <g transform="translate(100, 50)">
+    <!-- Lower Sack -->
+    <rect x="20" y="90" width="160" height="60" rx="10" fill="#78350F"/>
+    <line x1="20" y1="120" x2="180" y2="120" stroke="#92400E" stroke-width="2" stroke-dasharray="4,4"/>
+    <!-- Top Sack -->
+    <rect x="35" y="40" width="130" height="55" rx="10" fill="#92400E"/>
+    <!-- Stripe on sack -->
+    <line x1="100" y1="40" x2="100" y2="95" stroke="#16A34A" stroke-width="12" opacity="0.8"/>
+    <!-- Stitched mouth -->
+    <line x1="35" y1="65" x2="165" y2="65" stroke="#B45309" stroke-width="2" stroke-dasharray="4,4"/>
+  </g>
+  <rect x="24" y="24" width="145" height="26" rx="4" fill="#D9A441" fill-opacity="0.2" stroke="#D9A441" stroke-width="1"/>
+  <text x="96" y="41" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FDE047" text-anchor="middle">A-TWILL JUTE SACKS</text>
+</svg>

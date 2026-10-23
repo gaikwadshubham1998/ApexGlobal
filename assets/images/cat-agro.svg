@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="agroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14342B" />
+      <stop offset="100%" stop-color="#0E221B" />
+    </linearGradient>
+    <linearGradient id="grainGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="12" fill="url(#agroBg)" />
+  <circle cx="500" cy="100" r="160" fill="#047857" opacity="0.12" />
+  <circle cx="100" cy="320" r="120" fill="#F59E0B" opacity="0.08" />
+
+  <!-- Jute Sacks with Grains -->
+  <g transform="translate(140, 90)">
+    <!-- Main Sack -->
+    <path d="M 120,80 Q 80,120 70,220 Q 180,245 270,220 Q 260,120 220,80 Q 170,95 120,80 Z" fill="#854D0E" opacity="0.9" />
+    <!-- Tied neck -->
+    <ellipse cx="170" cy="80" rx="55" ry="16" fill="#A16207" />
+    <path d="M 120,80 Q 170,110 220,80" stroke="#CA8A04" stroke-width="4" fill="none" />
+    <!-- Wheat Stalks / Ears of Corn protruding -->
+    <g stroke="url(#grainGold)" stroke-width="3" stroke-linecap="round">
+      <path d="M 170,75 L 140,15" />
+      <path d="M 140,15 L 132,25 M 140,15 L 148,25 M 145,35 L 135,42 M 150,50 L 140,57" />
+      <path d="M 175,75 L 175,8" />
+      <path d="M 175,8 L 167,18 M 175,8 L 183,18 M 175,28 L 165,36 M 175,28 L 185,36 M 175,46 L 165,54" />
+      <path d="M 180,75 L 210,18" />
+      <path d="M 210,18 L 202,28 M 210,18 L 218,28 M 205,38 L 195,45 M 200,52 L 190,59" />
+    </g>
+    <!-- Sack stamp / Grade label -->
+    <rect x="125" y="140" width="90" height="45" rx="4" fill="#FEF08A" opacity="0.15" stroke="#FDE047" stroke-width="1.5" stroke-dasharray="3,3" />
+    <text x="170" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FEF08A" text-anchor="middle" letter-spacing="1">EXPORT GRADE</text>
+    <text x="170" y="174" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#FDE047" text-anchor="middle">AGRO-CERTIFIED</text>
+    <!-- Turmeric & Spices bowl foreground -->
+    <ellipse cx="260" cy="225" rx="45" ry="18" fill="#B45309" />
+    <ellipse cx="260" cy="220" rx="42" ry="14" fill="#D97706" />
+    <ellipse cx="260" cy="217" rx="34" ry="10" fill="#FBBF24" />
+  </g>
+
+  <!-- Title Badge Overlay -->
+  <g transform="translate(40, 310)">
+    <rect width="260" height="52" rx="8" fill="#0B1B2B" fill-opacity="0.88" stroke="#D9A441" stroke-width="1.2" />
+    <text x="18" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Agro Commodities &amp; Spices</text>
+    <text x="18" y="40" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#CBD5E1">Basmati Rice &bull; Turmeric &bull; Oilseeds</text>
+  </g>
+</svg>

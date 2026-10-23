@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="none">
+  <defs>
+    <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E3E62" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0B1B2B" stop-opacity="1"/>
+    </radialGradient>
+    <filter id="hubGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="500" rx="16" fill="url(#mapGlow)"/>
+
+  <!-- Simplified Stylized World Continents in Dot/Silhouette Matrix -->
+  <!-- North America -->
+  <path d="M 140,90 Q 200,80 260,110 Q 250,180 180,210 Q 150,170 120,130 Z" fill="#1E3A5F" opacity="0.6"/>
+  <!-- South America -->
+  <path d="M 230,240 Q 290,260 270,360 Q 230,420 210,380 Q 200,300 230,240 Z" fill="#1E3A5F" opacity="0.6"/>
+  <!-- Europe -->
+  <path d="M 450,90 Q 520,80 540,130 Q 490,170 440,140 Z" fill="#1E3A5F" opacity="0.6"/>
+  <!-- Africa -->
+  <path d="M 440,180 Q 530,180 540,270 Q 500,380 470,360 Q 420,270 440,180 Z" fill="#1E3A5F" opacity="0.6"/>
+  <!-- Asia & India (Core Hub) -->
+  <path d="M 540,90 Q 750,80 780,200 Q 680,240 600,200 Q 560,150 540,90 Z" fill="#1E3A5F" opacity="0.7"/>
+  <!-- Indian Subcontinent Highlight -->
+  <path d="M 600,200 L 640,200 L 620,270 Z" fill="#2A527A" opacity="0.9"/>
+  <!-- Australia & Oceania -->
+  <path d="M 750,310 Q 840,310 820,390 Q 740,390 750,310 Z" fill="#1E3A5F" opacity="0.5"/>
+
+  <!-- Central Origin Trade Hub: INDIA (Mumbai / Mundra / Nhava Sheva Ports) -->
+  <!-- Coordinates: approx (618, 225) -->
+  <circle cx="618" cy="225" r="14" fill="#D9A441" opacity="0.3" filter="url(#hubGlow)"/>
+  <circle cx="618" cy="225" r="8" fill="#F3BA45"/>
+  <circle cx="618" cy="225" r="4" fill="#FFFFFF"/>
+
+  <!-- Trade Route: India -> Middle East / GCC (Dubai, Jebel Ali) -->
+  <!-- Destination: (530, 205) -->
+  <path d="M 618,225 Q 575,190 530,205" fill="none" stroke="#F3BA45" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <circle cx="530" cy="205" r="5" fill="#F3BA45"/>
+  <text x="500" y="195" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#FDE047">Middle East / GCC</text>
+
+  <!-- Trade Route: India -> Southeast Asia (Singapore / Vietnam / Malaysia) -->
+  <!-- Destination: (720, 255) -->
+  <path d="M 618,225 Q 670,255 720,255" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <circle cx="720" cy="255" r="5" fill="#38BDF8"/>
+  <text x="732" y="260" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#38BDF8">Southeast Asia</text>
+
+  <!-- Trade Route: India -> East Africa (Mombasa / Dar es Salaam) -->
+  <!-- Destination: (515, 295) -->
+  <path d="M 618,225 Q 560,285 515,295" fill="none" stroke="#F3BA45" stroke-width="2.2" stroke-dasharray="6,4"/>
+  <circle cx="515" cy="295" r="5" fill="#F3BA45"/>
+  <text x="440" y="315" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#FDE047">East Africa &amp; COMESA</text>
+
+  <!-- Trade Route: India -> Europe (Rotterdam / Hamburg / Antwerp via Suez) -->
+  <!-- Destination: (480, 125) -->
+  <path d="M 618,225 Q 520,185 480,125" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-dasharray="6,4"/>
+  <circle cx="480" cy="125" r="5" fill="#38BDF8"/>
+  <text x="430" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#38BDF8">Europe &amp; UK</text>
+
+  <!-- Trade Route: India -> Americas (Atlantic & Pacific Corridors) -->
+  <path d="M 480,125 Q 320,110 200,140" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4,4" opacity="0.7"/>
+  <circle cx="200" cy="140" r="4.5" fill="#94A3B8"/>
+  <text x="140" y="130" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#CBD5E1">North America</text>
+
+  <!-- Legend & Verification Card -->
+  <g transform="translate(40, 410)">
+    <rect width="360" height="60" rx="8" fill="#0B1B2B" fill-opacity="0.9" stroke="#334155" stroke-width="1"/>
+    <circle cx="25" cy="30" r="6" fill="#F3BA45"/>
+    <text x="40" y="27" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Headquarters Hub: Mumbai Port, India</text>
+    <text x="40" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#94A3B8">Connecting Direct Sourcing Corridors Across 5 Continents</text>
+  </g>
+</svg>
